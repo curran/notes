@@ -1,0 +1,12 @@
+/**
+ * The styles for the notes pages.
+ * By Curran Kelleher 11/9/2013.
+ */
+
+/* Set nice page margins. */
+#content {
+  margin-top: 70px;
+  margin-bottom: 70px;
+  margin-right: 10%;
+  margin-left: 10%;
+}
