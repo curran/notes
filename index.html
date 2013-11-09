@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=utf-8 />
+    <!--
+      A serverless blog for a collection of entries authored in Markdown.
+      By Curran Kelleher 11/7/2013
+    -->
+    <title>Notes</title>
+    <script src="js/jquery.js"></script>
+    <script src="js/underscore.js"></script>
+    <script src="js/backbone.js"></script>
+    <script src="js/moment.js"></script>
+    <script src="js/marked.js"></script>
+    <script src="js/main.js"></script>
+    <script type="text/template" id="indexPage">
+      <ul>
+        <% _.each(entries, function(entry){ %>
+          <li>
+            <a href="#entries/<%= entry.name %>">
+              <%= entry.title %>
+              <%= entry.date.format('MMMM Do YYYY') %>
+            </a>
+          </li>
+        <% }); %>
+      </ul>
+    </script>
+    <script type="text/template" id="entryPage">
+      <div><%= title %></div>
+      <div><%= date.format('MMMM Do YYYY') %></div>
+      <div>by <%= author %></div>
+      <div><%= content %></div>
+    </script>
+  </head>
+  <body>
+    <div id="content"></div>
+  </body>
+</html>
