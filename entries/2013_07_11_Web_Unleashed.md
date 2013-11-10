@@ -54,3 +54,15 @@ Here are what seem to be the top JavaScript libraries and frameworks:
    library today. Handlebars is derived from 
    [Mustache](http://mustache.github.io/), which provides logic-less templates.
    Ember is built on top of Handlebars.
+
+I say "is the top framework for ...", but I don't really know. These are just 
+my impressions based on my own experiences and the talks I saw at Web Unleashed
+and Boston Web tech meetups.
+
+In any case, Web Unleashed was inspiring. It confirmed for me the notion that 
+the Web is in fact the premiere application development platform of our time.
+It seems that HTML5 is now taking preference for new projects over most other 
+application development platforms like Java, Adobe Flex, C#, and iOS. This is 
+because JavaScript and HTML5 as a platform offers the most compelling solution 
+to the age old "write once, run anywhere" problem in the modern era of cloud 
+and mobile computing.
