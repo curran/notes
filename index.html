@@ -16,6 +16,10 @@
     <script src="js/backbone.js"></script>
     <script src="js/moment.js"></script>
     <script src="js/marked.js"></script>
+    <script>
+      var disqus_shortname = 'example';
+    </script>
+    <script src="http://curran-notes.disqus.com/embed.js"></script>
     <script src="js/main.js"></script>
     <script type="text/template" id="indexPage">
       <div class="index-title">Notes:</div>
@@ -23,7 +27,7 @@
       <ul class="entries">
         <% _.each(entries, function(entry){ %>
           <li>
-            <a class="entry-title" href="#entries/<%= entry.name %>"><%= entry.title %></a>
+            <a class="entry-title" href="#!entries/<%= entry.name %>"><%= entry.title %></a>
             <span class="date"><%= entry.date.format('MMMM Do YYYY') %></div>
           </li>
         <% }); %>
@@ -39,6 +43,9 @@
     </script>
   </head>
   <body>
-    <div id="container"></div>
+    <div id="container">
+      <div id="content"> </div>
+      <div id="disqus_thread"></div>
+    </div>
   </body>
 </html>

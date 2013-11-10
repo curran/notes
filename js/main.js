@@ -15,7 +15,7 @@
  */
 $(function (){
   var defaultAuthor = 'Curran Kelleher';
-  var containerDivId = 'container';
+  var containerDivId = 'content';
 
   // The model for a single note entry.
   var Note = Backbone.Model.extend({
@@ -88,7 +88,7 @@ $(function (){
   // Sets dynamic page content based on fragment identifiers.
   var Router = Backbone.Router.extend({
     routes: {
-      'entries/:name': 'entryPage',
+      '!entries/:name': 'entryPage',
       '*path': 'indexPage'
     },
     entryPage: function (name) {
@@ -105,6 +105,8 @@ $(function (){
         note.set('content', marked(data));
         view.render();
       });
+
+      resetDisqusComments(note.get('name'));
     },
     indexPage: function () {
       var notes = new Notes(),
@@ -114,8 +116,22 @@ $(function (){
           view.render();
         }
       });
+      resetDisqusComments('index');
     }
   });
+
+  // Updates Disqus to show comments for the current page.
+  // see http://help.disqus.com/customer/portal/articles/472107
+  function resetDisqusComments(id) {
+    DISQUS.reset({
+      reload: true,
+      config: function () {  
+        this.page.identifier = id;
+        this.page.url = window.location.href;
+        console.log(this.page.url);
+      }
+    });
+  }
 
   new Router;
   Backbone.history.start()
