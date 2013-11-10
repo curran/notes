@@ -29,10 +29,13 @@ Here are what seem to be the top JavaScript libraries and frameworks:
  * [Underscore](http://underscorejs.org/) is the go-to functional programming 
    utility library, providing functional primitives found in other languages
    such as map and reduce. In practice Underscore finds wide use in 
-   transforming data.
+   transforming data. Underscore also has a minimalist templating API,
+   which is used often when only simple template logic is required.
  * [Backbone](http://backbonejs.org/) is a tried and true bare bones MVC 
    framework that provides a great implementation of fundamental features 
    such as events, observable properties, and class-like inheritance.
+   Backbone also has foundational support for routes based on hash fragments
+   and RESTful synchronization with a CRUD backend for persistence.
  * [AMD](https://github.com/amdjs/amdjs-api/wiki/AMD) is becoming the industry 
    standard for separating JavaScript projects across many files using 
    modules. The top AMD implementation is [Require](http://requirejs.org/).
@@ -40,10 +43,14 @@ Here are what seem to be the top JavaScript libraries and frameworks:
    industry standard pattern for dealing with asynchronous control flow. 
    The top Promises implementation is [Q](https://github.com/kriskowal/q).
  * Data Binding frameworks are all the rage today, because they take so much
-   work out of end-to-end application development. These frameworks solve
-   the fundamental problem of propagating changes through a data dependency 
-   graph. The top data binding frameworks today are:
+   boilerplate and repetition out of end-to-end application development. These 
+   frameworks solve the fundamental recurring problems of propagating changes 
+   through a data dependency graph and managing client side template rendering.
+   The top data binding frameworks today are:
      * [Ember.js](http://emberjs.com/)
      * [Angular.js](http://angularjs.org/)
      * [Knockout.js](http://knockoutjs.com/)
-
+ * [Handlebars](http://handlebarsjs.com/) is the top client side templating 
+   library today. Handlebars is derived from 
+   [Mustache](http://mustache.github.io/), which provides logic-less templates.
+   Ember is built on top of Handlebars.

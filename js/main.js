@@ -10,12 +10,14 @@
  * http://net.tutsplus.com/tutorials/javascript-ajax/game-on-backbone-and-ember
  */
 $(function (){
+  var defaultAuthor = 'Curran Kelleher';
+  var containerDivId = 'container';
 
   var Note = Backbone.Model.extend({
     defaults: {
       name: '',
       content: 'loading content...',
-      author: 'Curran Kelleher'
+      author: defaultAuthor
     }
   });
 
@@ -36,23 +38,31 @@ $(function (){
     return {
       name: name,
       date: moment(name, 'YYYY_MM_DD'),
-      title: name.split('_').slice(3).join(' ').replace('.md', '')
+      title: parseTitle(name)
     };
+  }
+
+  function parseTitle(name) {
+    var titleWithMdExtension = name.split('_').slice(3).join(' ');
+    return titleWithMdExtension.replace('.md', '');
   }
 
   // Shows an index of all notes with links to each.
   var IndexPageView = Backbone.View.extend({
-    el: '#content',
+    el: '#' + containerDivId,
     template: _.template($('#indexPage').html()),
     render: function (){
-      var data = { entries: this.collection.toJSON() };
+      var data = {
+        entries: this.collection.toJSON(),
+        author: defaultAuthor
+      };
       this.$el.html(this.template(data));
     }
   });
 
   // Shows a page with the content of a specific note.
   var EntryPageView = Backbone.View.extend({
-    el: '#content',
+    el: '#' + containerDivId,
     template: _.template($('#entryPage').html()),
     render: function (){
       var data = this.model.toJSON();

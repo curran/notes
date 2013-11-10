@@ -7,6 +7,8 @@
       By Curran Kelleher 11/7/2013
     -->
     <title>Notes</title>
+    <link href='http://fonts.googleapis.com/css?family=Share+Tech+Mono' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/theme.css">
     <script src="js/jquery.js"></script>
@@ -16,25 +18,27 @@
     <script src="js/marked.js"></script>
     <script src="js/main.js"></script>
     <script type="text/template" id="indexPage">
-      <ul>
+      <div class="index-title">Notes:</div>
+      <div class="author">by <%= author %></div>
+      <ul class="entries">
         <% _.each(entries, function(entry){ %>
           <li>
-            <a href="#entries/<%= entry.name %>">
-              <%= entry.title %>
-              <%= entry.date.format('MMMM Do YYYY') %>
-            </a>
+            <a class="entry-title" href="#entries/<%= entry.name %>"><%= entry.title %></a>
+            <span class="date"><%= entry.date.format('MMMM Do YYYY') %></div>
           </li>
         <% }); %>
       </ul>
     </script>
     <script type="text/template" id="entryPage">
-      <div><%= title %></div>
-      <div><%= date.format('MMMM Do YYYY') %></div>
-      <div>by <%= author %></div>
-      <div><%= content %></div>
+      <div class="title-container">
+        <span class="entry-title"><%= title %></span>
+        <span class="date"><%= date.format('MMMM Do YYYY') %></span>
+        <div class="author">by <%= author %></div>
+      </div>
+      <div class="content"><%= content %></div>
     </script>
   </head>
   <body>
-    <div id="content"></div>
+    <div id="container"></div>
   </body>
 </html>

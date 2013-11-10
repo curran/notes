@@ -3,10 +3,90 @@
  * By Curran Kelleher 11/9/2013.
  */
 
-/* Set nice page margins. */
-#content {
+#container {
+
+  /* Set nice page margins. */
   margin-top: 70px;
   margin-bottom: 70px;
-  margin-right: 10%;
-  margin-left: 10%;
+  margin-right: 20%;
+  margin-left: 20%;
+
+  /* Make it look kind of like a newspaper. */
+  text-align: justify;
+
+  /* Use the fancy font from the Google Font API. */
+  font-family: 'Share Tech Mono', sans-serif;
+}
+
+/* Style the page title. */
+.index-title {
+  font-size: 6em;
+  color: #007C8F;
+}
+
+/* Style the entries list. */
+.entries {
+
+  /* Add some vertical space between the title and entries list. */
+  padding-top: 25px;
+
+  /* Make bullets circles. */
+  /*list-style-type: circle;*/
+}
+
+/* Style the entry titles within the list. */
+.entry-title {
+  font-size: 3em;
+
+  /* Add some horizontal space between the title and the date. */
+  padding-right: 15px;
+}
+
+/* Style hyperlinks to underline on hover. */
+/*a {
+  color: black;
+}
+a:link {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+*/
+/* Style the date and author text near the entry titles. */
+.date {
+  color: gray;
+  font-size: 1.4em;
+}
+.author {
+  color: gray;
+  font-size: 1.4em;
+}
+
+/**
+ * On entry pages, add vertical space between the title area
+ * and the text content of the entry.
+ */
+.title-container {
+  padding-bottom: 20px;
+}
+
+/* Style the text content of the entry. */
+.content {
+  font-family: 'Open Sans', sans-serif;
+  line-height: 110%;
+  font-size: 1.3em;
+}
+
+.content p {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+.content ul{
+  padding-left: 1.5em; 
+}
+.content li{
+  margin-top: 12px;
+  margin-bottom: 12px;
+  list-style-type: circle;
 }
