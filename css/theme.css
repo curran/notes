@@ -29,9 +29,6 @@
 
   /* Add some vertical space between the title and entries list. */
   padding-top: 25px;
-
-  /* Make bullets circles. */
-  /*list-style-type: circle;*/
 }
 
 /* Style the entry titles within the list. */
@@ -43,16 +40,12 @@
 }
 
 /* Style hyperlinks to underline on hover. */
-/*a {
+a {
   color: black;
 }
-a:link {
-  text-decoration: none;
-}
 a:hover {
-  text-decoration: underline;
+  color: blue;
 }
-*/
 /* Style the date and author text near the entry titles. */
 .date {
   color: gray;
@@ -79,14 +72,16 @@ a:hover {
 }
 
 .content p {
-  margin-top: 12px;
-  margin-bottom: 12px;
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
 .content ul{
   padding-left: 1.5em; 
 }
 .content li{
-  margin-top: 12px;
-  margin-bottom: 12px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+
+  /* Make bullets circles. */
   list-style-type: circle;
 }
