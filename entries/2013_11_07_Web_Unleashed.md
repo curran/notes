@@ -42,6 +42,7 @@ Here are what seem to be the top JavaScript libraries and frameworks:
  * [Promises](http://wiki.commonjs.org/wiki/Promises/A) is becoming the 
    industry standard pattern for dealing with asynchronous control flow. 
    The top Promises implementation is [Q](https://github.com/kriskowal/q).
+   [Async.js](https://github.com/caolan/async) is also great.
  * Data Binding frameworks are all the rage today, because they take so much
    boilerplate and repetition out of end-to-end application development. These 
    frameworks solve the fundamental recurring problems of propagating changes 
@@ -57,12 +58,12 @@ Here are what seem to be the top JavaScript libraries and frameworks:
 
 I say "is the top framework for ...", but I don't really know. These are just 
 my impressions based on my own experiences and the talks I saw at Web Unleashed
-and Boston Web tech meetups.
+and various Boston Web tech meetups.
 
 In any case, Web Unleashed was inspiring. It confirmed for me the notion that 
 the Web is in fact the premiere application development platform of our time.
 It seems that HTML5 is now taking preference for new projects over most other 
 application development platforms like Java, Adobe Flex, C#, and iOS. This is 
 because JavaScript and HTML5 as a platform offers the most compelling solution 
-to the age old "write once, run anywhere" problem in the modern era of cloud 
-and mobile computing.
+to the age old "write once, run anywhere" problem, especially the modern era 
+of cloud and mobile computing.
