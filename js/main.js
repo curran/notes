@@ -1,7 +1,11 @@
 /**
  * This file contains the core of the note viewing app.
- *
  * By Curran Kelleher 11/9/2013
+ *
+ * This page is a Backbone-driven "single page app" that has two kinds of views:
+ *
+ *  * an index of all notes with links to each, and
+ *  * a page with the content of a specific note.
  *
  * Draws from:
  *
@@ -13,14 +17,19 @@ $(function (){
   var defaultAuthor = 'Curran Kelleher';
   var containerDivId = 'container';
 
+  // The model for a single note entry.
   var Note = Backbone.Model.extend({
     defaults: {
-      name: '',
       content: 'loading content...',
       author: defaultAuthor
+      // additional expected fields:
+      //   name: String
+      //   title: String
+      //   date: Date
     }
   });
 
+  // The collection of notes used by the index view.
   var Notes = Backbone.Collection.extend({
     model: Note,
     url: 'entriesList.json',
@@ -29,11 +38,14 @@ $(function (){
     }
   });
 
+  // Parses an entry file name into its constituent parts,
+  // returning an objects that provides values for all fields
+  // of the Note model except 'content'.
   function parseName (name) {
-    // example name: "2013_07_11_Web_Unleashed.md"
+    // example name: "2013_11_07_Web_Unleashed.md"
     // year:          2013
-    // month:              07
-    // day:                   11
+    // month:              11
+    // day:                   07
     // title:                    Web Unleashed
     return {
       name: name,
@@ -42,8 +54,11 @@ $(function (){
     };
   }
 
+  // Parses the title portion out of an entry file name.
+  // parseTitle('2013_07_11_Web_Unleashed.md') returns 'Web Unleashed'
   function parseTitle(name) {
-    var titleWithMdExtension = name.split('_').slice(3).join(' ');
+    var tokensAfterDate = name.split('_').slice(3),
+        titleWithMdExtension = tokensAfterDate.join(' ');
     return titleWithMdExtension.replace('.md', '');
   }
 
@@ -70,6 +85,7 @@ $(function (){
     }
   });
 
+  // Sets dynamic page content based on fragment identifiers.
   var Router = Backbone.Router.extend({
     routes: {
       'entries/:name': 'entryPage',
@@ -78,8 +94,14 @@ $(function (){
     entryPage: function (name) {
       var note = new Note(parseName(name));
           view = new EntryPageView({ model: note });
+
+      // Render with content as 'loading content...'.
       view.render();
+
+      // Fetch the Markdown (.md) file that contains the content of the entry.
       $.get('entries/' + name, function (data) {
+
+        // Re-render with real content.
         note.set('content', marked(data));
         view.render();
       });
