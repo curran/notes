@@ -28,7 +28,7 @@
 
     <script type="text/template" id="indexPage">
       <div class="index-title">Notes:</div>
-      <div class="author">by <%= author %></div>
+      <div class="author">by <a href="<%= authorLink %>"><%= author %></a></div>
       <ul class="entries">
         <% _.each(entries, function(entry){ %>
           <li>
@@ -42,7 +42,7 @@
       <div class="title-container">
         <span class="entry-title"><%= title %></span>
         <span class="date"><%= date.format('MMMM Do YYYY') %></span>
-        <div class="author">by <%= author %></div>
+        <div class="author">by <a href="<%= authorLink %>"><%= author %></a></div>
       </div>
       <div class="content"><%= content %></div>
     </script>

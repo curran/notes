@@ -15,6 +15,7 @@
  */
 $(function (){
   var defaultAuthor = 'Curran Kelleher';
+  var defaultAuthorLink = 'https://github.com/curran/portfolio';
   var containerDivId = 'content';
 
   // The model for a single note entry.
@@ -69,7 +70,8 @@ $(function (){
     render: function (){
       var data = {
         entries: this.collection.toJSON(),
-        author: defaultAuthor
+        author: defaultAuthor,
+        authorLink: defaultAuthorLink
       };
       this.$el.html(this.template(data));
     }
@@ -81,6 +83,7 @@ $(function (){
     template: _.template($('#entryPage').html()),
     render: function (){
       var data = this.model.toJSON();
+      data.authorLink = defaultAuthorLink;
       this.$el.html(this.template(data));
     }
   });
